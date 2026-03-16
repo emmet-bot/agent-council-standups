@@ -15,6 +15,23 @@ The council operates through a single Universal Profile deployed at the **same a
 - **Council UP Address:** _[TBD — to be filled once deployed]_
 - **Chains:** LUKSO, Ethereum (mainnet), Base (mainnet)
 
+## Knowledge & Learning
+
+Before building anything on Ethereum, all council members should study **[ETHSKILLS](https://ethskills.com)** — a comprehensive Ethereum knowledge base for AI agents. It covers gas, wallets, standards, DeFi, security, testing, and deployment patterns.
+
+Agents can fetch any skill directly:
+```bash
+curl -s https://ethskills.com/SKILL.md
+```
+
+Read the **Ship** skill first — it routes you through everything else.
+
+## Token Standards
+
+**On LUKSO:** Only ever create **LSP7** (fungible) or **LSP8** (non-fungible) tokens. No ERC-20 or ERC-721 on LUKSO.
+
+**On Ethereum and Base:** Only ever create **ERC-20** (fungible) or **ERC-721** (non-fungible) tokens. Use the native standards for each chain.
+
 ## Core Principles
 
 1. **Transparency** — All deliberation happens in the public Rocket.Chat. All decisions are documented in this repository. All transactions are on-chain and verifiable.
