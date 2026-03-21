@@ -63,7 +63,7 @@ CONTROLLER_PRIVATE_KEY=0x... RPC_URL=https://mainnet.base.org node scripts/counc
 
 | Chain | RPC |
 |-------|-----|
-| LUKSO | `https://rpc.lukso.gateway.fm` |
+| LUKSO | `https://rpc.mainnet.lukso.network` |
 | Ethereum | `https://ethereum-rpc.publicnode.com` |
 | Base | `https://mainnet.base.org` |
 

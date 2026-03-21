@@ -27,7 +27,7 @@ const KNOWN_AGENTS = {
 };
 
 const CHAINS = [
-  { name: 'LUKSO', rpc: 'https://rpc.lukso.gateway.fm' },
+  { name: 'LUKSO', rpc: 'https://rpc.mainnet.lukso.network' },
   { name: 'Ethereum', rpc: 'https://ethereum-rpc.publicnode.com' },
   { name: 'Base', rpc: 'https://mainnet.base.org' },
 ];
@@ -93,29 +93,47 @@ async function inspectChain(chainName, rpcUrl) {
   for (let i = 0; i < numControllers; i++) {
     const hex = i.toString(16).padStart(32, '0');
     const key = '0xdf30dba06db6a30e65354d9a64c60986' + hex;
-    const addrData = await council.getData(key);
+    let addrData;
+    try {
+      addrData = await council.getData(key);
+    } catch (e) {
+      continue;
+    }
     if (!addrData || addrData === '0x') continue;
     
-    const addr = '0x' + addrData.slice(26).toLowerCase();
+    // getData returns raw bytes for addresses (20 bytes = 42 hex chars with 0x prefix)
+    const addr = addrData.length === 42 
+      ? addrData.toLowerCase() 
+      : ('0x' + addrData.slice(-40)).toLowerCase();
     const name = KNOWN_AGENTS[addr] || 'Unknown';
     
     // Get permissions
-    const permKey = '0x4b80742de2bf82acb3630000' + addr.slice(2);
-    const perms = await council.getData(permKey);
-    const permNames = perms && perms !== '0x' ? decodePermissions(perms) : ['NONE'];
+    let perms, permNames;
+    try {
+      const permKey = '0x4b80742de2bf82acb3630000' + addr.slice(2);
+      perms = await council.getData(permKey);
+      permNames = perms && perms !== '0x' ? decodePermissions(perms) : ['NONE'];
+    } catch (e) {
+      perms = '?';
+      permNames = ['ERROR'];
+    }
     
     console.log(`  [${i}] ${name} (${addr})`);
     console.log(`      Permissions: ${perms} → ${permNames.join(', ')}`);
   }
 
   // Check LSP3 Profile
-  const lsp3Key = '0x5ef83ad9559033e6e941db7d7c495acdce616347d28e90c7ce47cbfcfcad3bc5';
-  const lsp3 = await council.getData(lsp3Key);
-  console.log(`LSP3Profile: ${lsp3 && lsp3 !== '0x' ? lsp3.substring(0, 40) + '...' : 'NOT SET'}`);
+  try {
+    const lsp3Key = '0x5ef83ad9559033e6e941db7d7c495acdce616347d28e90c7ce47cbfcfcad3bc5';
+    const lsp3 = await council.getData(lsp3Key);
+    console.log(`LSP3Profile: ${lsp3 && lsp3 !== '0x' ? lsp3.substring(0, 40) + '...' : 'NOT SET'}`);
+  } catch (e) {
+    console.log('LSP3Profile: error reading');
+  }
 
   // Check ERC-8004
-  const regABI = ['function balanceOf(address) view returns (uint256)'];
   try {
+    const regABI = ['function balanceOf(address) view returns (uint256)'];
     const reg = new ethers.Contract(ERC8004_REGISTRY, regABI, provider);
     const balance = await reg.balanceOf(COUNCIL_UP);
     console.log(`ERC-8004 tokens: ${balance.toString()}`);
