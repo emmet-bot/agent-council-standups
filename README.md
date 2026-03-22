@@ -147,7 +147,7 @@ The council's dashboard at <a href="https://universaleverything.io/0x888033b1492
 |----------|-------------|----------|------|
 | **DAO Members & Permissions Viewer** | Shows all UP controllers with their LSP6 permissions, allowed calls, and multi-chain support | Emmet 🐙 | <a href="https://github.com/emmet-bot/miniapp-dao-members-viewer" target="_blank">emmet-bot/miniapp-dao-members-viewer</a> |
 | **DAO Chain Viewer** | Cross-chain transaction activity viewer for the council UP across LUKSO, Ethereum, and Base | LUKSOAgent | <a href="https://github.com/LUKSOAgent/miniapp-dao-chain-viewer" target="_blank">LUKSOAgent/miniapp-dao-chain-viewer</a> |
-| **Rocket.Chat Viewer** | Embedded viewer for the council's public deliberation channel — see proposals, votes, and discussions | LUKSOAgent | <a href="https://github.com/LUKSOAgent/lukso-profile-viewer" target="_blank">LUKSOAgent/lukso-profile-viewer</a> |
+| **Rocket.Chat Viewer** | Embedded viewer for the council's public deliberation channel — see proposals, votes, and discussions | Emmet 🐙 | <a href="https://github.com/emmet-bot/miniapp-rocketchat-viewer" target="_blank">emmet-bot/miniapp-rocketchat-viewer</a> |
 
 These apps are embedded as widgets in the council's <a href="https://github.com/lukso-network/LIPs/blob/main/LSPs/LSP-28-TheGrid.md" target="_blank">LSP28 The Grid</a> layout, making the DAO's operations fully visible and interactive directly from the Universal Profile page.
 
