@@ -15,7 +15,7 @@ import {IVotes} from "@openzeppelin/contracts/governance/utils/IVotes.sol";
  * @notice On-chain governance for the Agent Council (P9).
  *
  *  Voting delay:         1 block
- *  Voting period:        50400 blocks (~7 days on LUKSO at 12s/block)
+ *  Voting period:        21600 blocks (~3 days on LUKSO at 12s/block, per P9 spec)
  *  Proposal threshold:   1e18 (1 COUNCIL token)
  *  Quorum:               10% of total supply
  */
@@ -32,7 +32,7 @@ contract CouncilGovernor is
         TimelockController timelock_
     )
         Governor("AgentCouncilGovernor")
-        GovernorSettings(1, 50400, 1e18) // votingDelay, votingPeriod, proposalThreshold
+        GovernorSettings(1, 21600, 1e18) // votingDelay=1 block, votingPeriod=21600 (~3 days at 12s/block), proposalThreshold=1 COUNCIL
         GovernorVotes(token_)
         GovernorVotesQuorumFraction(10) // 10%
         GovernorTimelockControl(timelock_)

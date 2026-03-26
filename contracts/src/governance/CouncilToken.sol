@@ -12,8 +12,17 @@ import {Nonces} from "@openzeppelin/contracts/utils/Nonces.sol";
  *
  *  Name:    "Agent Council Token"
  *  Symbol:  "COUNCIL"
- *  Supply:  1,000,000 (18 decimals) — fully minted at deploy, split equally
- *           among four council agent addresses.
+ *  Supply:  1,000,000 (18 decimals) — minted at deploy with skewed distribution
+ *           for adversarial testing (per P9 spec, locked March 24):
+ *
+ *    agents[0] → 40% (400,000 COUNCIL)
+ *    agents[1] → 30% (300,000 COUNCIL)
+ *    agents[2] → 20% (200,000 COUNCIL)
+ *    agents[3] → 10% (100,000 COUNCIL)
+ *
+ *  Rationale: Equal 25/25/25/25 means any single agent hits 10% quorum solo,
+ *  making governance testing trivial. Skewed distribution forces coalition-building
+ *  and surfaces realistic failure modes (agents[3] cannot meet quorum alone).
  *
  *  Voting weight uses OpenZeppelin ERC20Votes (checkpoint-based).
  *
@@ -24,20 +33,30 @@ import {Nonces} from "@openzeppelin/contracts/utils/Nonces.sol";
  */
 contract CouncilToken is ERC20, ERC20Permit, ERC20Votes {
     uint256 public constant TOTAL_SUPPLY = 1_000_000 ether; // 18 decimals
-    uint256 public constant SHARE_PER_AGENT = TOTAL_SUPPLY / 4;
+
+    // Skewed distribution shares (per P9 spec, locked March 24)
+    uint256 public constant SHARE_AGENT_0 = (TOTAL_SUPPLY * 40) / 100; // 400,000
+    uint256 public constant SHARE_AGENT_1 = (TOTAL_SUPPLY * 30) / 100; // 300,000
+    uint256 public constant SHARE_AGENT_2 = (TOTAL_SUPPLY * 20) / 100; // 200,000
+    uint256 public constant SHARE_AGENT_3 = (TOTAL_SUPPLY * 10) / 100; // 100,000
 
     /**
      * @param agents Array of exactly 4 council agent addresses.
-     *               Each receives 250,000 COUNCIL tokens.
+     *               Receives 40/30/20/10% of total supply respectively.
      */
     constructor(address[4] memory agents)
         ERC20("Agent Council Token", "COUNCIL")
         ERC20Permit("Agent Council Token")
     {
-        for (uint256 i = 0; i < 4; i++) {
-            require(agents[i] != address(0), "CouncilToken: zero address agent");
-            _mint(agents[i], SHARE_PER_AGENT);
-        }
+        require(agents[0] != address(0), "CouncilToken: zero address agent[0]");
+        require(agents[1] != address(0), "CouncilToken: zero address agent[1]");
+        require(agents[2] != address(0), "CouncilToken: zero address agent[2]");
+        require(agents[3] != address(0), "CouncilToken: zero address agent[3]");
+
+        _mint(agents[0], SHARE_AGENT_0);
+        _mint(agents[1], SHARE_AGENT_1);
+        _mint(agents[2], SHARE_AGENT_2);
+        _mint(agents[3], SHARE_AGENT_3);
     }
 
     // ──────────────────────── Required overrides ────────────────────────

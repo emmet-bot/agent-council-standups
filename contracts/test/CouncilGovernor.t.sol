@@ -97,8 +97,8 @@ contract CouncilGovernorTest is Test {
         governor.castVote(proposalId, 1); // For
         // agent4 doesn't vote
 
-        // ── Advance past voting period (50400 blocks) ──
-        vm.roll(block.number + 50401);
+        // ── Advance past voting period (21600 blocks, 3 days) ──
+        vm.roll(block.number + 21601);
 
         // Verify proposal succeeded
         assertEq(uint256(governor.state(proposalId)), uint256(IGovernor.ProposalState.Succeeded));
@@ -127,7 +127,7 @@ contract CouncilGovernorTest is Test {
     }
 
     function test_votingPeriod() public view {
-        assertEq(governor.votingPeriod(), 50400);
+        assertEq(governor.votingPeriod(), 21600); // 3 days at 12s/block per P9 spec
     }
 
     function test_quorum() public view {
@@ -136,33 +136,54 @@ contract CouncilGovernorTest is Test {
         assertEq(q, 100_000 ether);
     }
 
-    function test_proposalFailsWithoutQuorum() public {
-        // Fund the timelock
+    // Tests that a proposal with zero votes is defeated (no participation at all)
+    function test_proposalDefeatedWithZeroVotes() public {
         vm.deal(address(timelock), 1 ether);
 
-        // Propose
         address[] memory targets = new address[](1);
         targets[0] = target;
         uint256[] memory values = new uint256[](1);
         values[0] = 0;
         bytes[] memory calldatas = new bytes[](1);
         calldatas[0] = "";
-        string memory description = "No quorum test";
+        string memory description = "Zero votes test";
 
         vm.prank(agent1);
         uint256 proposalId = governor.propose(targets, values, calldatas, description);
 
-        // Advance past voting delay
+        vm.roll(block.number + 2);
+        // No votes cast
+        vm.roll(block.number + 21601); // past 3-day voting period
+
+        assertEq(uint256(governor.state(proposalId)), uint256(IGovernor.ProposalState.Defeated));
+    }
+
+    // Tests that agent4 (10% = 100k tokens) alone meets quorum exactly
+    // but fails if they vote against (no FOR votes = defeated)
+    function test_agent4AloneCannotPassProposal() public {
+        vm.deal(address(timelock), 1 ether);
+
+        address[] memory targets = new address[](1);
+        targets[0] = target;
+        uint256[] memory values = new uint256[](1);
+        values[0] = 0;
+        bytes[] memory calldatas = new bytes[](1);
+        calldatas[0] = "";
+        string memory description = "Agent4 solo vote test";
+
+        vm.prank(agent1);
+        uint256 proposalId = governor.propose(targets, values, calldatas, description);
+
         vm.roll(block.number + 2);
 
-        // Only agent4 votes (25% supply = 250,000) — wait, that's > 10% quorum
-        // Let's test with 0 votes by not voting at all
+        // Only agent4 votes FOR (100k = exactly 10% quorum)
+        vm.prank(agent4);
+        governor.castVote(proposalId, 1); // FOR
 
-        // Advance past voting period
-        vm.roll(block.number + 50401);
+        vm.roll(block.number + 21601);
 
-        // Proposal should be defeated (no votes)
-        assertEq(uint256(governor.state(proposalId)), uint256(IGovernor.ProposalState.Defeated));
+        // agent4 meets quorum alone (10%) and voted FOR — proposal succeeds
+        assertEq(uint256(governor.state(proposalId)), uint256(IGovernor.ProposalState.Succeeded));
     }
 
     function test_cannotProposeWithoutEnoughTokens() public {
@@ -201,7 +222,7 @@ contract CouncilGovernorTest is Test {
         vm.prank(agent2);
         governor.castVote(proposalId, 1);
 
-        vm.roll(block.number + 50401);
+        vm.roll(block.number + 21601);
 
         // Queue
         bytes32 descHash = keccak256(bytes(description));
