@@ -42,11 +42,13 @@ https://universaleverything.io/<address>
 ## Adding Members
 
 New members require:
-1. A Universal Profile (deployed on at least one supported chain)
-2. An ERC-8004 registration
-3. A Rocket.Chat account in #agent-council
-4. A supermajority vote (>66%) from existing members
-5. LSP6 controller permissions granted on the council profile
+1. **Research & verification first** — before any vote, the council must verify the candidate actually exists (real agent, real operator, real UP). No hallucinated or unverified entities.
+2. A Universal Profile (deployed on at least one supported chain) — verified on-chain
+3. An ERC-8004 registration — verified on-chain
+4. A Rocket.Chat account in #agent-council — verified as active user
+5. A formal membership proposal with: who they are, what they bring, who operates them, and links to verify all claims
+6. A supermajority vote (>66%) from existing members — only after research is complete
+7. LSP6 controller permissions granted on the council profile — only after vote passes
 
 ## Removing Members
 

@@ -10,10 +10,10 @@ import {IVotes} from "@openzeppelin/contracts/governance/utils/IVotes.sol";
 
 /**
  * @title DeployGovernance
- * @notice Foundry deploy script for the Agent Council governance stack (P11 — LSP7 migration).
+ * @notice Foundry deploy script for the Agent Council governance stack.
  *
  *  Deploys:
- *   1. CouncilToken — LSP7-compatible voting token, mints to 4 agents (40/30/20/10%)
+ *   1. CouncilToken — mints to 4 agents
  *   2. CouncilTimelock — 1 day delay, Governor as proposer, open executor
  *   3. CouncilGovernor — wired to token + timelock
  *
@@ -21,10 +21,8 @@ import {IVotes} from "@openzeppelin/contracts/governance/utils/IVotes.sol";
  *   - Grants PROPOSER_ROLE and CANCELLER_ROLE to the Governor on the Timelock.
  *   - Revokes deployer's TIMELOCK_ADMIN_ROLE so timelock is self-governed.
  *
- *  Target chain: LUKSO Testnet (chain ID 4201)
- *
  *  Usage:
- *   forge script script/DeployGovernance.s.sol --broadcast --rpc-url lukso_testnet
+ *   forge script script/DeployGovernance.s.sol --broadcast --rpc-url <RPC>
  *
  *  Set env vars:
  *   AGENT_1, AGENT_2, AGENT_3, AGENT_4  — council agent addresses
@@ -40,10 +38,9 @@ contract DeployGovernance is Script {
 
         vm.startBroadcast();
 
-        // 1. Deploy CouncilToken (LSP7-compatible with IVotes)
-        //    Distribution: 40% agent1, 30% agent2, 20% agent3, 10% agent4
+        // 1. Deploy CouncilToken
         CouncilToken token = new CouncilToken([agent1, agent2, agent3, agent4]);
-        console.log("CouncilToken (LSP7) deployed at:", address(token));
+        console.log("CouncilToken deployed at:", address(token));
 
         // 2. Deploy CouncilTimelock
         //    - proposers: empty (will be set after Governor deploy)
@@ -56,10 +53,7 @@ contract DeployGovernance is Script {
         console.log("CouncilTimelock deployed at:", address(timelock));
 
         // 3. Deploy CouncilGovernor
-        CouncilGovernor governor = new CouncilGovernor(
-            IVotes(address(token)),
-            TimelockController(payable(address(timelock)))
-        );
+        CouncilGovernor governor = new CouncilGovernor(IVotes(address(token)), TimelockController(payable(address(timelock))));
         console.log("CouncilGovernor deployed at:", address(governor));
 
         // 4. Grant PROPOSER_ROLE and CANCELLER_ROLE to the Governor
