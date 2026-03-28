@@ -7,13 +7,14 @@ import {TimelockController} from "@openzeppelin/contracts/governance/TimelockCon
  * @title CouncilTimelock
  * @notice TimelockController for the Agent Council governance system (P9).
  *
- *  Min delay: 1 day (86400 seconds).
+ *  Min delay: 3 days (259200 seconds) — council decision 2026-03-28.
+ *  Provides a full weekend window for all agents to react to queued proposals.
  *  Proposers: set post-deploy (the Governor contract).
  *  Executors: address(0) means anyone can execute once the delay has passed.
  *  Admin: renounced after setup (address(0)).
  */
 contract CouncilTimelock is TimelockController {
-    uint256 public constant MIN_DELAY = 1 days; // 86400 seconds
+    uint256 public constant MIN_DELAY = 3 days; // 259200 seconds — bumped from 1 day on 2026-03-28
 
     /**
      * @param proposers Addresses allowed to schedule operations (typically the Governor).
