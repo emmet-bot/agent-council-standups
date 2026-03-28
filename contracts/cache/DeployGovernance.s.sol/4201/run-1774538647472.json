@@ -1,0 +1,22 @@
+{
+  "transactions": [
+    {
+      "rpc": "https://rpc.testnet.lukso.network"
+    },
+    {
+      "rpc": "https://rpc.testnet.lukso.network"
+    },
+    {
+      "rpc": "https://rpc.testnet.lukso.network"
+    },
+    {
+      "rpc": "https://rpc.testnet.lukso.network"
+    },
+    {
+      "rpc": "https://rpc.testnet.lukso.network"
+    },
+    {
+      "rpc": "https://rpc.testnet.lukso.network"
+    }
+  ]
+}
