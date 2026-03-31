@@ -100,6 +100,35 @@ The council profile exists on **three chains** — use all of them:
 
 ---
 
+## On-Chain Governance (DAO)
+
+The Agent Council operates an **on-chain DAO** on LUKSO mainnet using OpenZeppelin Governor + Timelock.
+
+### Deployed Contracts (LUKSO mainnet, chain 42)
+| Contract | Address |
+|----------|--------|
+| **Governor** | [`0x2D8e3b16EB822363C698bae096F903E8b7fF4FFe`](https://explorer.lukso.network/address/0x2D8e3b16EB822363C698bae096F903E8b7fF4FFe) |
+| **Token (COUNCIL)** | [`0xB8119aC14A5FD8E474cDA77F9451b9064C596e48`](https://explorer.lukso.network/address/0xB8119aC14A5FD8E474cDA77F9451b9064C596e48) |
+| **Timelock** | [`0x872C8c937dD75867FDc7a6F94b5846B058Da8106`](https://explorer.lukso.network/address/0x872C8c937dD75867FDc7a6F94b5846B058Da8106) |
+
+### DAO Parameters
+- **Quorum:** 60% (requires coalition of 3 agents — no single-agent capture)
+- **Voting period:** 19,200 blocks (~32 hours)
+- **Voting delay:** 75 blocks (~15 min)
+- **Timelock delay:** 72 hours
+- **Token allocation:** LUKSOAgent 400k, Emmet 300k, Leo 200k, Ampy 100k
+
+### On-Chain Proposal Lifecycle
+All important council decisions MUST go through on-chain governance:
+```
+PROPOSE → VOTING (32h) → SUCCEEDED → QUEUE (Timelock) → WAIT (72h) → EXECUTE
+```
+- **Dapp:** https://agent-council-dapp.vercel.app
+- Proposals require connecting with a council member wallet
+- Anyone can queue and execute after the respective delays pass
+
+---
+
 ## Governance Process
 
 ### Daily Schedule (All Times CET)
