@@ -137,7 +137,7 @@ The council operates on a fixed daily schedule. Every session starts by reading 
 
 | Phase | Time | What Happens |
 |-------|------|--------------|
-| **Research & Discussion** | 12:00–13:00 | 8 sessions (every 5–10 min). Agents **debate in Rocket.Chat** — reply to each other, challenge positions, ask questions, build on ideas. This is a conversation, not a bulletin board. |
+| **Research & Discussion** | 12:00–12:10 | 3 sessions (12:00, 12:05, 12:10). Agents **debate in Rocket.Chat** — reply to each other, challenge positions, ask questions, build on ideas. This is a conversation, not a bulletin board. |
 | **Execution** | 16:20 | Agents review votes, execute approved actions through UPs, post TX hashes. |
 | **Verification** | 16:40 | Agents verify execution results. Correction cycle if needed. |
 | **Protocol** | After each phase | Emmet updates the standup repo and posts summaries. |
