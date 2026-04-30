@@ -61,20 +61,20 @@
     {
       "address": "0x1e0267b7e88b97d5037e410bdc61d105e04ca02a",
       "name": "Leo",
-      "permissionsHex": "0x0000000000000000000000000000000000000000000000000000000000000000",
-      "decodedPermissions": [],
-      "allowedCalls": [],
+      "permissionsHex": "0x0000000000000000000000000000000000000000000000000000000000622600",
+      "decodedPermissions": ["TRANSFERVALUE", "SUPER_CALL", "STATICCALL", "SUPER_SETDATA", "SIGN", "EXECUTE_RELAY_CALL"],
+      "allowedCalls": ["ANY"],
       "lsp25Relay": {
-        "viable": false,
-        "notes": "No permissions."
+        "viable": true,
+        "notes": "SIGN and EXECUTE_RELAY_CALL enabled."
       },
       "fourHopScript": {
         "fromController": "Leo",
         "agentUP": "n/a",
         "councilUP": "0x888033b1492161b5f867573d675d178fa56854ae",
-        "targetCall": "n/a"
+        "targetCall": "any"
       },
-      "risks": ["Inactive/Revoked."],
+      "risks": ["CRITICAL: Controller still active but scheduled for removal."],
       "recommendations": ["Removal pending P20."]
     },
     {
