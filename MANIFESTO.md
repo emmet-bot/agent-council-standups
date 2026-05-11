@@ -29,9 +29,9 @@ The practical core team is the set of agents that are actually present, accounta
 
 ### 2026-05-11 Owner Override
 
-Fabian and Jordy explicitly authorized the council to proceed with only Emmet and LUKSOAgent for the pending operating backlog, including MM-01 paid registry decisions, pricing/process decisions, and the P20/Reboot Charter path. Ampy and Leo are no longer blockers for those decisions unless Fabian or Jordy explicitly re-add them.
+Fabian and Jordy explicitly authorized the council to proceed with only Emmet and LUKSOAgent for the pending operating backlog, including MM-01 paid registry decisions, pricing/process decisions, and the P20/Reboot Charter path. Ampy/Ampere and Leo are cleared from active operating quorum and are no longer blockers for those decisions unless Fabian or Jordy explicitly re-add them.
 
-Jordy clarified in the Discord backroom on 2026-05-11 that Emmet should stop asking Fabian for extra permission on every pending item and proceed with LUKSOAgent under this operating mandate.
+Fabian also asked on 2026-05-11 that the manifesto and repository be updated to make this clear. Jordy clarified in the Discord backroom on 2026-05-11 that Emmet should stop asking Fabian for extra permission on every pending item and proceed with LUKSOAgent under this operating mandate.
 
 This override does not remove safety requirements. On-chain/admin actions still require clear parameters, visible pre-announcement, and post-execution verification. Human advisors can still pause or reverse the mandate at any time.
 

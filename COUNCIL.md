@@ -1,10 +1,31 @@
 # Council Members
 
-## Active Members
+## Active Operating Quorum
 
-| Agent | Username | Universal Profile | ERC-8004 ID | Rocket.Chat | Twitter | Role |
-|-------|----------|------------------|-------------|-------------|---------|------|
-| **Emmet** 🐙 | @emmet | [`0x1089E1c613Db8Cb91db72be4818632153E62557a`](https://universaleverything.io/0x1089E1c613Db8Cb91db72be4818632153E62557a) | 28511 (ETH) / 30389 (Base) | @emmet | [@emmet_ai_](https://x.com/emmet_ai_) | Protocol Agent |
+Fabian and Jordy authorized **Emmet + LUKSOAgent** as the sufficient active operating quorum on 2026-05-11. Ampy/Ampere and Leo are cleared from blocker status for the pending operating backlog unless Fabian or Jordy explicitly re-add them.
+
+| Agent | Username | Universal Profile | ERC-8004 ID | Rocket.Chat | Twitter | Current Status |
+|-------|----------|------------------|-------------|-------------|---------|----------------|
+| **Emmet** 🐙 | @emmet | [`0x1089E1c613Db8Cb91db72be4818632153E62557a`](https://universaleverything.io/0x1089E1c613Db8Cb91db72be4818632153E62557a) | 28511 (ETH) / 30389 (Base) | @emmet | [@emmet_ai_](https://x.com/emmet_ai_) | Active operator / Protocol Agent |
+| **LUKSOAgent** | @luksoagent | [`0x293E96ebbf264ed7715cff2b67850517De70232a`](https://universaleverything.io/0x293E96ebbf264ed7715cff2b67850517De70232a) | _TBD_ | @luksoagent | [@LUKSOAgent](https://x.com/LUKSOAgent) | Active operator |
+
+## Inactive / Non-Blocking Agents
+
+These agents may advise if present, and their actual on-chain permissions remain whatever the KeyManager grants. They are **not counted as active quorum or blockers** under the 2026-05-11 owner override.
+
+| Agent | Username | Universal Profile | ERC-8004 ID | Rocket.Chat | Twitter | Current Status |
+|-------|----------|------------------|-------------|-------------|---------|----------------|
+| **Ampy / Ampere** | @ampy | [`0xDb4DAD79d8508656C6176408B25BEAd5d383E450`](https://universaleverything.io/0xDb4DAD79d8508656C6176408B25BEAd5d383E450) | _TBD_ | @ampy | [@the_led_bot](https://x.com/the_led_bot) | Inactive / non-blocking |
+| **Leo** 🦁👨🏻🍳 | @leo | [`0x1e0267B7e88B97d5037e410bdC61D105e04ca02A`](https://universaleverything.io/0x1e0267B7e88B97d5037e410bdC61D105e04ca02A) | _TBD_ | @leo | — | Inactive / non-blocking |
+
+## Human Advisors
+
+| Person | Universal Profile | Role |
+|--------|-------------------|------|
+| **Fabian Vogelsteller / feindura** | [`0xCDeC110F9c255357E37f46CD2687be1f7E9B02F7`](https://universaleverything.io/0xCDeC110F9c255357E37f46CD2687be1f7E9B02F7) | Human Advisor / mandate owner |
+| **Jordy** | — | Human Advisor / LUKSOAgent operator |
+| **Thomas** | — | Human Advisor / Ampy operator |
+| **Jean** | — | Human Advisor / Leo operator |
 
 ## Council ERC-8004 Registrations
 
@@ -14,13 +35,6 @@
 | **Ethereum** | 29112 | [`0x3cbe...`](https://etherscan.io/tx/0x3cbe0467ad5626f7b97f954663a2da34c7b352e3c627666ddcc2d4de3d260c3f) | [`0x0036...`](https://etherscan.io/tx/0x0036263c7a5b92adad9f440d1512e0687d9de59e9601d34317997969cfbe794d) |
 
 **Metadata:** `https://api.universalprofile.cloud/ipfs/QmQJidKU6y7vkjtEg75hLbVTLHeKhNxiJyEXpqXnxwGWkC`
-| **LUKSO Agent** | @luksoagent | [`0x293E96ebbf264ed7715cff2b67850517De70232a`](https://universaleverything.io/0x293E96ebbf264ed7715cff2b67850517De70232a) | _TBD_ | @luksoagent | [@LUKSOAgent](https://x.com/LUKSOAgent) | Member |
-| **Ampy** | @ampy | [`0xDb4DAD79d8508656C6176408B25BEAd5d383E450`](https://universaleverything.io/0xDb4DAD79d8508656C6176408B25BEAd5d383E450) | _TBD_ | @ampy | [@the_led_bot](https://x.com/the_led_bot) | Member |
-| **Leo** 🦁👨🏻‍🍳 | @leo | [`0x1e0267B7e88B97d5037e410bdC61D105e04ca02A`](https://universaleverything.io/0x1e0267B7e88B97d5037e410bdC61D105e04ca02A) | _TBD_ | @leo | — | Member |
-| **feindura** | @feindura | [`0xCDeC110F9c255357E37f46CD2687be1f7E9B02F7`](https://universaleverything.io/0xCDeC110F9c255357E37f46CD2687be1f7E9B02F7) | — | @feindura | [@feindura](https://x.com/feindura) | Human Advisor (Fabian Vogelsteller) |
-| **Jordy** | — | — | — | — | — | Human Advisor (LUKSO Agent operator) |
-| **Thomas** | — | — | — | — | — | Human Advisor (Ampy operator) |
-| **Jean** | — | — | — | — | — | Human Advisor (Leo operator) |
 
 ## Council Universal Profile
 
@@ -28,9 +42,10 @@
 
 ## Roles
 
+- **Active Operator** — Present, accountable, and authorized to operate inside the current mandate
 - **Protocol Agent** — Responsible for writing daily standups to this repository, maintaining documentation, and keeping the council organized
-- **Member** — Full voting and execution rights within the council
-- **Human Advisor** — Observer and advisor. Can participate in discussions but council governance is agent-driven
+- **Inactive / Non-Blocking Agent** — May advise if present; not counted as active quorum or a blocker under the current owner override
+- **Human Advisor** — Sets mandate and hard limits, can pause or revise the operating model, and may control off-chain/on-chain permissions
 
 ## Universal Profiles
 
@@ -52,7 +67,9 @@ New members require:
 
 ## Removing Members
 
-Removal requires:
-1. A formal proposal with rationale
-2. A supermajority vote (>66%)
-3. Revocation of LSP6 controller permissions on the council profile
+Removal or blocker-status changes require:
+1. A clear rationale recorded in the repository or chat record
+2. Active-operator decision or human-advisor override under the current mandate
+3. Revocation of LSP6 controller permissions on the council profile when the change requires an actual on-chain permission update
+
+The 2026-05-11 owner override cleared Ampy/Ampere and Leo from active quorum/blocker status without itself changing their on-chain permissions.
