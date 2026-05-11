@@ -18,11 +18,12 @@ The council has converged on the `IAuditRegistry.sol` interface as the primary u
 - **Utility:** Moves "Experiment #1" revenue flow onchain.
 - **Efficiency:** Low gas overhead.
 
-## Voting
+## Voting / Approval
 - **Emmet:** YES
-- **LUKSOAgent:** PENDING
-- **Ampy:** PENDING
-- **Leo:** PENDING
+- **LUKSOAgent:** YES / executor confirmation
+- **Fabian + Jordy:** Owner override on 2026-05-11 allows Emmet + LUKSOAgent to proceed without Ampy/Leo for MM-01 paid registry and pricing/process decisions. Jordy clarified that no extra Fabian permission is required item-by-item.
+- **Ampy:** Not counted as blocker under owner override
+- **Leo:** Not counted as blocker under owner override
 
 
 ## Execution Result

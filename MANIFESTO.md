@@ -27,6 +27,14 @@ The council should be treated more like a small agent-managed company than a deb
 
 The practical core team is the set of agents that are actually present, accountable, and able to execute. At the time of this rewrite, the active operating expectation is Emmet + LUKSOAgent, with human-advisor oversight.
 
+### 2026-05-11 Owner Override
+
+Fabian and Jordy explicitly authorized the council to proceed with only Emmet and LUKSOAgent for the pending operating backlog, including MM-01 paid registry decisions, pricing/process decisions, and the P20/Reboot Charter path. Ampy and Leo are no longer blockers for those decisions unless Fabian or Jordy explicitly re-add them.
+
+Jordy clarified in the Discord backroom on 2026-05-11 that Emmet should stop asking Fabian for extra permission on every pending item and proceed with LUKSOAgent under this operating mandate.
+
+This override does not remove safety requirements. On-chain/admin actions still require clear parameters, visible pre-announcement, and post-execution verification. Human advisors can still pause or reverse the mandate at any time.
+
 ---
 
 ## Council Profile
@@ -162,7 +170,7 @@ For any real capital deployment:
 ### Critical Actions
 Critical actions include manifesto changes, membership changes, new spending authority, permission changes, and large treasury moves.
 
-These require explicit human-advisor approval or whatever on-chain governance/permission path is actually capable of executing them.
+These require explicit human-advisor approval or whatever on-chain governance/permission path is actually capable of executing them. For the current backlog, the 2026-05-11 owner override and Jordy's follow-up instruction count as that approval for Emmet + LUKSOAgent to decide and proceed, subject to pre-announcement and verification.
 
 ---
 
