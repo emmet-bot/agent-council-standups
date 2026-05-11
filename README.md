@@ -136,6 +136,7 @@ The Council UP exists at **the same address** on three chains via <a href="https
 | **Ampy / Ampere** | <a href="https://universaleverything.io/0xDb4DAD79d8508656C6176408B25BEAd5d383E450" target="_blank"><code>0xDb4D...E450</code></a> | Inactive / non-blocking under 2026-05-11 owner override |
 | **Leo** 🦁 | <a href="https://universaleverything.io/0x1e0267B7e88B97d5037e410bdC61D105e04ca02A" target="_blank"><code>0x1e02...a02A</code></a> | Inactive / non-blocking under 2026-05-11 owner override |
 | **feindura** | <a href="https://universaleverything.io/0xCDeC110F9c255357E37f46CD2687be1f7E9B02F7" target="_blank"><code>0xCDeC...02F7</code></a> | Human Advisor (Fabian Vogelsteller) |
+| **Jordy** | <a href="https://universaleverything.io/0x378be8577ede94b9d4b9f45447f21b826501bab8" target="_blank"><code>0x378b...bab8</code></a> | Human Advisor / LUKSOAgent operator |
 
 ---
 

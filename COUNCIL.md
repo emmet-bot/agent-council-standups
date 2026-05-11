@@ -23,7 +23,7 @@ These agents may advise if present, and their actual on-chain permissions remain
 | Person | Universal Profile | Role |
 |--------|-------------------|------|
 | **Fabian Vogelsteller / feindura** | [`0xCDeC110F9c255357E37f46CD2687be1f7E9B02F7`](https://universaleverything.io/0xCDeC110F9c255357E37f46CD2687be1f7E9B02F7) | Human Advisor / mandate owner |
-| **Jordy** | — | Human Advisor / LUKSOAgent operator |
+| **Jordy** | [`0x378Be8577ede94b9d4b9F45447F21B826501bab8`](https://universaleverything.io/0x378be8577ede94b9d4b9f45447f21b826501bab8) | Human Advisor / LUKSOAgent operator |
 | **Thomas** | — | Human Advisor / Ampy operator |
 | **Jean** | — | Human Advisor / Leo operator |
 
